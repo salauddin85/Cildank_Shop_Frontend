@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cildank</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body class="bg-dark">
+    <!-- navbar -->
+    <div id="navbar"></div>
+
+    <!-- FILTER BY SIZE AND PRICE -->
+    <div class="d-flex flex-wrap gap-5 col-lg-6 col-lg-10 mx-5 mb-2 mt-5">
+   
+      <div class="d-flex gap-1">
+        <div>
+          <p class="">
+            <a
+              class="text-decoration-none"
+              data-bs-toggle="collapse"
+              href="#collapseExample"
+              role=""
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <button
+                class="text-uppercase fs-6 viewProduct-btn dropdown-toggle text-light text-decoration-none"
+              >
+                Filter size
+              </button>
+            </a>
+          </p>
+
+          <div class="collapse " id="collapseExample">
+            <h6 class="text-center text-light mb-2">SIZE</h6>
+            <div class=" bg-white rounded p-2  card-body text-center">
+              <div class="">
+                <h5 id="sizeS" class="btn btn-primary filter-size-btn  px-3">S</h5>
+                <br />
+                <h5 id="sizeM" class="btn btn-success filter-size-btn px-3">M</h5>
+                <br />
+                <h5 id="sizeL" class="btn btn-warning filter-size-btn text-light px-3">
+                  L
+                </h5>
+                <br />
+                <h5 id="sizeXL" class="btn btn-dark text-light filter-size-btn px-3">XL</h5>
+                <br />
+                <h5 id="sizeXXL" class="btn btn-light text-light filter-size-btn px-3">
+                  XXL
+                </h5>
+                <br />
+              </div>
+
+              <!-- <a
+                href="#"
+                class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                >Reset</a
+              > -->
+            </div>
+          </div>
+
+          
+
+
+        </div>
+      </div>
+    
+
+      <div class="d-flex">
+        <!-- sort by collapse -->
+        <div>
+          <p class="">
+            <a
+              class="text-decoration-none"
+              data-bs-toggle="collapse"
+              href="#collapseExample1"
+              role=""
+              aria-expanded="false"
+              aria-controls="collapseExample1"
+            >
+              <button
+                class="text-uppercase dropdown-toggle fs-6 viewProduct-btn text-light text-decoration-none"
+                style="color: rgba(25, 25, 112, 0.863)"
+              >
+                Filter Price
+              </button>
+            </a>
+          </p>
+          <div class="collapse mb-3" id="collapseExample1">
+            <div class=" bg-white rounded p-2  card-body">
+              <h6 id="sortLowToHigh" class="price-l fw-bold border-0 mb-2" style=" cursor: pointer;">
+                Price, low to high 
+              </h6>
+              <h6 id="sortHighToLow" class="fw-bold border-0" style=" cursor: pointer;">
+                Price, high to low
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="dropdown">
+          <button
+            class="viewProduct-btn text-uppercase dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Category
+          </button>
+          <ul class="dropdown-menu" id="category"></ul>
+        </div>
+      </div>
+      <div>
+        <div class="dropdown">
+          <button
+            class="viewProduct-btn text-uppercase dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Color
+          </button>
+          <ul class="dropdown-menu bg-secondary mb-1" id="Color">
+            <li class="black-color mb-1 text-secondary fw-bold text-center" data-color="Black">Black</li>
+            <li class="white-color mb-1 text-secondary fw-bold text-center" data-color="White">White</li>
+            <li class="blue-color text-secondary fw-bold text-center" data-color="Blue">Blue</li>
+          </ul>
+          
+        </div>
+      </div>
+      <div>
+      <div class="dropdown">
+        <button
+          class="viewProduct-btn text-uppercase dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          clothing
+        </button>
+        <ul class="dropdown-menu" id="sub_category"></ul>
+      </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="text-start">
+        <input
+          class="p-3 m-5 search-inp border border-info text-light"
+          style="width: 65%"
+          type="text"
+          name="search"
+          id="search-input"
+          placeholder="Type to Search.."
+        />
+        <button
+          type="submit"
+          id="search-button"
+          class="viewProduct-btn mb-4 text-uppercase"
+          style="margin-left: 50px"
+        >
+          Search
+        </button>
+        <div class="d-fle gap-2">
+          <!-- show sort by product -->
+          <div class="fs-5 text-light mb-4 text-center" id="totalProduct">
+            <!-- <span id="resultCount"> Results <small class="opacity-25">|</small> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="container"> -->
+    <div class="row row-cols-1 row-cols-md-4 g-3 mx-5" id="products"></div>
+    <!-- </div> -->
+
+    <div id="more-products">
+      <div class="more-products-container">
+        <a
+          id="previous-button"
+          class="btn btn-secondary previous-button fw-bold text-light mt-5 py-3 text-bold mb-5"
+          style="display: none"
+        >
+          PREVIOUS
+        </a>
+        <a
+          id="load-more-button"
+          class="btn btn-light load-more-button fw-bold text-black mt-5 px-2 py-3 text-bold text-black mb-5"
+        >
+          LOAD MORE
+        </a>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div id="footer"></div>
+
+    <script src="./navbar.js"></script>
+    <script src="./footer.js"></script>
+    <script src="./index.js"></script>
+    <script src="./auth.js"></script>
+    <script src="./product.js"></script>
+    <script src="./detatils.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
